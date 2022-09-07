@@ -1,15 +1,164 @@
 import { useState } from "react";
 
 
+const firstlevel = [
+    {
+        key: 1,
+        name: "AC"
+    },
+    {
+        key: 2,
+        name: "+/-"
+    },
+    {
+        key: 3,
+        name: "%"
+    },
+    {
+        key: 4,
+        name: "/"
+    }
+]
+
+    const secondlevel = [
+        {
+            key: 1,
+            name: "7"
+        },
+        {
+            key: 2,
+            name: "8"
+        },
+        {
+            key: 3,
+            name: "9"
+        },
+        {
+            key: 4,
+            name: "x"
+        }
+    ]
+
+    const thirdlevel = [
+        {
+            key: 1,
+            name: "4"
+        },
+        {
+            key: 2,
+            name: "5"
+        }, {
+            key: 3,
+            name: "6"
+        },
+        {
+            key: 4,
+            name: "-"
+        } 
+    ]
+
+    const fourthlevel = [
+        {
+            key: 1,
+            name: "1"
+        },
+        {
+            key: 2,
+            name: "2"
+        },
+        {
+            key: 3,
+            name: "3"
+        },
+        {
+            key: 4,
+            name: "+"
+        }
+    ]
+
+    const fifthlevel = [
+        {
+            key: 1,
+            name: "0"
+        },
+        {
+            key: 2,
+            name: ","
+        },
+        {
+            key: 3,
+            name: "="
+        }
+    ]
+
 const Main = ()=> {
 
-    const [display, setDisplay] = useState("")
+    
 
-  
+    const [display, setDisplay] = useState()
+
+    const handleDisplay = () => {
+        setDisplay(display)
+        console.log("done")
+    }
+
+
 
     return (
         <>
             <div className="title">IOS Calculator</div>
+            <div className="wrap">
+
+            <div className="window">{handleDisplay}</div>  
+
+            <div value={handleDisplay} className="firstlevel" onClick={()=>handleDisplay(firstlevel.name)}>
+                {firstlevel.map((index)=> (
+                    <div key={index.key} className="circle1">
+                        {index.name}
+                    </div> 
+                ))}
+           </div>
+            
+            <div className="secondlevel">
+                {secondlevel.map((index)=> (
+                    <div key={index.key} className="circle2">
+                        {index.name}
+                    </div>
+                ))}
+            </div>
+
+            
+            <div className="thirdlevel">
+                {thirdlevel.map((index)=> (
+                    <div key={index.key} className="circle3">
+                        {index.name}
+                    </div> 
+                ))}
+           </div>
+
+           
+           <div className="fourthlevel">
+                {fourthlevel.map((index)=> (
+                    <div key={index.key} className="circle4">
+                        {index.name}
+                    </div> 
+                ))}
+           </div>
+
+           
+           <div className="fifthlevel">
+                {fifthlevel.map((index)=> (
+                    <div key={index.key} className="circle5">
+                        {index.name}
+                    </div> 
+                ))}
+           </div>
+
+            </div>
+
+            
+
+            {/* <div className="title">IOS Calculator</div>
             <div className="wrapper">
                 <div className="window"></div>
                <div className="firstLevel">
@@ -90,7 +239,7 @@ const Main = ()=> {
                     
                 </div>
 
-            </div>
+            </div> */}
         </>
     )
 }
