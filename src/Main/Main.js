@@ -94,76 +94,26 @@ const firstlevel = [
 const Main = ()=> {
 
     
-
+    const [window, setWindow] = useState("0")
     const [display, setDisplay] = useState()
 
     const handleDisplay = () => {
-        setDisplay(display)
+        
         console.log("done")
+        
     }
 
 
 
     return (
         <>
+    
             <div className="title">IOS Calculator</div>
-            <div className="wrap">
-
-            <div className="window">{handleDisplay}</div>  
-
-            <div value={handleDisplay} className="firstlevel" onClick={()=>handleDisplay(firstlevel.name)}>
-                {firstlevel.map((index)=> (
-                    <div key={index.key} className="circle1">
-                        {index.name}
-                    </div> 
-                ))}
-           </div>
-            
-            <div className="secondlevel">
-                {secondlevel.map((index)=> (
-                    <div key={index.key} className="circle2">
-                        {index.name}
-                    </div>
-                ))}
-            </div>
-
-            
-            <div className="thirdlevel">
-                {thirdlevel.map((index)=> (
-                    <div key={index.key} className="circle3">
-                        {index.name}
-                    </div> 
-                ))}
-           </div>
-
-           
-           <div className="fourthlevel">
-                {fourthlevel.map((index)=> (
-                    <div key={index.key} className="circle4">
-                        {index.name}
-                    </div> 
-                ))}
-           </div>
-
-           
-           <div className="fifthlevel">
-                {fifthlevel.map((index)=> (
-                    <div key={index.key} className="circle5">
-                        {index.name}
-                    </div> 
-                ))}
-           </div>
-
-            </div>
-
-            
-
-            {/* <div className="title">IOS Calculator</div>
             <div className="wrapper">
-                <div className="window"></div>
+                <div className="window">{window}</div>
                <div className="firstLevel">
 
-                    <div className="delete">
+                    <div className="delete" onClick={handleDisplay}>
                         AC
                     </div>
                     <div className="negativeValue">
@@ -239,7 +189,59 @@ const Main = ()=> {
                     
                 </div>
 
-            </div> */}
+            </div>
+
+
+
+            <div className="title">IOS Calculator</div>
+            <div className="wrap">
+
+            <div className="window2">{window}</div>  
+
+            <div value={handleDisplay} className="firstlevel" onClick={()=>handleDisplay(firstlevel.name)}>
+                {firstlevel.map((index)=> (
+                    <div key={index.key} className="circle1">
+                        {index.name}
+                    </div> 
+                ))}
+           </div>
+            
+            <div className="secondlevel">
+                {secondlevel.map((index)=> (
+                    <div key={index.key} className="circle2">
+                        {index.name}
+                    </div>
+                ))}
+            </div>
+
+            
+            <div className="thirdlevel">
+                {thirdlevel.map((index)=> (
+                    <div key={index.key} className="circle3">
+                        {index.name}
+                    </div> 
+                ))}
+           </div>
+
+           
+           <div className="fourthlevel">
+                {fourthlevel.map((index)=> (
+                    <div key={index.key} className="circle4">
+                        {index.name}
+                    </div> 
+                ))}
+           </div>
+
+           
+           <div className="fifthlevel">
+                {fifthlevel.map((index)=> (
+                    <div key={index.key} className="circle5">
+                        {index.name}
+                    </div> 
+                ))}
+           </div>
+
+            </div>
         </>
     )
 }
