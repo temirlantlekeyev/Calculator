@@ -93,11 +93,7 @@ const firstlevel = [
 
 const Main = ()=> {
 
-
-    const operators = ["+", "-", "*", "/"]
-
     
-    const [window, setWindow] = useState("0")
     const [display, setDisplay] = useState("")
 
     const handleDisplay = (value) => {
@@ -109,8 +105,17 @@ const Main = ()=> {
         setDisplay("")
     }
 
-    const calculate = () => {
-        setDisplay(eval(display).toString())
+    const calculate = (value) => {
+        try{
+            setDisplay(eval(display).toString())
+        }
+        catch{
+            setDisplay("Error")
+        }
+    }
+
+    const backspace = () => {
+        setDisplay(display.slice(0, display.length -1))
     }
 
     return (
@@ -118,25 +123,29 @@ const Main = ()=> {
     
             <div className="title">IOS Calculator</div>
             <div className="wrapper">
-                <div className="window">{display || "0"}</div>
+                <div className="container">
+                <div className="displayContainer">
+                <input type="text" className="window" value={display || "0"}/>
+                </div>
+
+                <div className="btnConatainer">
                <div className="firstLevel">
 
                     <div className="delete" onClick={clear}>
                         AC
                     </div>
-                    <div className="negativeValue">
-                        +/-
+                    <div className="backspace" onClick={backspace}>
+                        C
                     </div>
-                    <div className="percent">
+                    {/* <div className="percent">
                         %
-                    </div>
+                    </div> */}
                     <div className="division" onClick={()=> handleDisplay("/")}>
                         /
                     </div>
                 </div>
                 
                 <div className="secondLevel">
-
                     <div className="seven" onClick={()=> handleDisplay("7")}>
                         7
                     </div>
@@ -152,7 +161,6 @@ const Main = ()=> {
                 </div>
 
                 <div className="thirdLevel">
-
                     <div className="four" onClick={()=> handleDisplay("4")}>
                         4
                     </div>
@@ -168,7 +176,6 @@ const Main = ()=> {
                 </div>
 
                 <div className="fourthLevel">
-
                     <div className="one" onClick={()=> handleDisplay("1")}>
                         1
                     </div>
@@ -184,31 +191,31 @@ const Main = ()=> {
                 </div>
 
                 <div className="fifthLevel">
-
                     <div className="zero" onClick={()=> handleDisplay("0")}>
                         0
                     </div>
-                    <div className="comma" onClick={()=> handleDisplay(",")}>
+                    {/* <div className="comma" onClick={()=> handleDisplay(",")}>
                         ,
-                    </div>
+                    </div> */}
                     <div className="equal" onClick={calculate}>
                         =
                     </div>
                     
                 </div>
-
+                </div>
+                </div>
             </div>
 
 
 
-            <div className="title">IOS Calculator</div>
+            {/* <div className="title">IOS Calculator</div>
             <div className="wrap">
 
-            <div className="window2"></div>  
+            <div className="window2">{display || "0"}</div>  
 
-            <div value={handleDisplay} className="firstlevel" onClick={()=>handleDisplay(firstlevel.name)}>
+            <div value={handleDisplay} className="firstlevel" >
                 {firstlevel.map((index)=> (
-                    <div key={index.key} className="circle1">
+                    <div key={index.key} className="circle1" onClick={()=>handleDisplay()}>
                         {index.name}
                     </div> 
                 ))}
@@ -249,7 +256,7 @@ const Main = ()=> {
                 ))}
            </div>
 
-            </div>
+            </div> */}
         </>
     )
 }
